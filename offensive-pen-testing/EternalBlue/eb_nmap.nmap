@@ -1,0 +1,53 @@
+# Nmap 7.91 scan initiated Fri Oct 15 18:56:51 2021 as: nmap -sC -sV -oA eb_nmap -Pn 10.10.38.15
+Nmap scan report for 10.10.38.15
+Host is up (0.28s latency).
+Not shown: 990 closed ports
+PORT      STATE    SERVICE            VERSION
+135/tcp   open     msrpc              Microsoft Windows RPC
+139/tcp   open     netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open     microsoft-ds       Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open     ssl/ms-wbt-server?
+| rdp-ntlm-info: 
+|   Target_Name: JON-PC
+|   NetBIOS_Domain_Name: JON-PC
+|   NetBIOS_Computer_Name: JON-PC
+|   DNS_Domain_Name: Jon-PC
+|   DNS_Computer_Name: Jon-PC
+|   Product_Version: 6.1.7601
+|_  System_Time: 2021-10-15T23:00:15+00:00
+| ssl-cert: Subject: commonName=Jon-PC
+| Not valid before: 2021-10-14T22:17:49
+|_Not valid after:  2022-04-15T22:17:49
+|_ssl-date: 2021-10-15T23:00:24+00:00; +1m01s from scanner time.
+49152/tcp open     msrpc              Microsoft Windows RPC
+49153/tcp open     msrpc              Microsoft Windows RPC
+49154/tcp open     msrpc              Microsoft Windows RPC
+49158/tcp open     msrpc              Microsoft Windows RPC
+49160/tcp open     msrpc              Microsoft Windows RPC
+50003/tcp filtered unknown
+Service Info: Host: JON-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 1h01m00s, deviation: 2h14m10s, median: 1m00s
+|_nbstat: NetBIOS name: JON-PC, NetBIOS user: <unknown>, NetBIOS MAC: 02:f8:e8:78:2e:d7 (unknown)
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: Jon-PC
+|   NetBIOS computer name: JON-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2021-10-15T18:00:15-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-10-15T23:00:14
+|_  start_date: 2021-10-15T22:17:48
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Oct 15 18:59:24 2021 -- 1 IP address (1 host up) scanned in 152.50 seconds
