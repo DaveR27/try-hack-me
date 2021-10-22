@@ -42,3 +42,4 @@ use winPeas to find what is vuln
 mv advance.exe to the vuln Advanced SystemCare dir
 
 run advance to get root shell
+
