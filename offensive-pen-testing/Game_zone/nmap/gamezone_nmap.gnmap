@@ -1,0 +1,4 @@
+# Nmap 7.91 scan initiated Fri Oct 22 15:12:25 2021 as: nmap -sC -sV -oA gamezone_nmap -Pn 10.10.209.139
+Host: 10.10.209.139 ()	Status: Up
+Host: 10.10.209.139 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/	Ignored State: closed (998)
+# Nmap done at Fri Oct 22 15:12:56 2021 -- 1 IP address (1 host up) scanned in 31.46 seconds

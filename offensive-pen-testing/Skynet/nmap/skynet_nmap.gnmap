@@ -1,0 +1,4 @@
+# Nmap 7.91 scan initiated Fri Oct 22 16:43:28 2021 as: nmap -sC -sV -oA skynet_nmap -Pn 10.10.204.103
+Host: 10.10.204.103 ()	Status: Up
+Host: 10.10.204.103 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/, 110/open/tcp//pop3//Dovecot pop3d/, 139/open/tcp//netbios-ssn//Samba smbd 3.X - 4.X (workgroup: WORKGROUP)/, 143/open/tcp//imap//Dovecot imapd/, 445/open/tcp//netbios-ssn//Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)/	Ignored State: closed (994)
+# Nmap done at Fri Oct 22 16:44:12 2021 -- 1 IP address (1 host up) scanned in 43.93 seconds

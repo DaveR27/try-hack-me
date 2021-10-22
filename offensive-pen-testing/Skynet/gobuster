@@ -1,0 +1,27 @@
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.204.103/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Timeout:                 10s
+===============================================================
+2021/10/22 16:48:48 Starting gobuster in directory enumeration mode
+===============================================================
+/.hta                 (Status: 403) [Size: 278]
+/.htaccess            (Status: 403) [Size: 278]
+/.htpasswd            (Status: 403) [Size: 278]
+/admin                (Status: 301) [Size: 314] [--> http://10.10.204.103/admin/]
+/config               (Status: 301) [Size: 315] [--> http://10.10.204.103/config/]
+/css                  (Status: 301) [Size: 312] [--> http://10.10.204.103/css/]   
+/index.html           (Status: 200) [Size: 523]                                   
+/js                   (Status: 301) [Size: 311] [--> http://10.10.204.103/js/]    
+/server-status        (Status: 403) [Size: 278]                                   
+/squirrelmail         (Status: 301) [Size: 321] [--> http://10.10.204.103/squirrelmail/]
+===============================================================
+2021/10/22 16:50:58 Finished
+===============================================================
