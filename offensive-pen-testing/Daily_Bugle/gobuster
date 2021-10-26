@@ -1,0 +1,37 @@
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.84.205/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Timeout:                 10s
+===============================================================
+2021/10/26 03:06:13 Starting gobuster in directory enumeration mode
+===============================================================
+/.htaccess            (Status: 403) [Size: 211]
+/.hta                 (Status: 403) [Size: 206]
+/.htpasswd            (Status: 403) [Size: 211]
+/administrator        (Status: 301) [Size: 242] [--> http://10.10.84.205/administrator/]
+/bin                  (Status: 301) [Size: 232] [--> http://10.10.84.205/bin/]          
+/cache                (Status: 301) [Size: 234] [--> http://10.10.84.205/cache/]        
+/cgi-bin/             (Status: 403) [Size: 210]                                         
+/components           (Status: 301) [Size: 239] [--> http://10.10.84.205/components/]   
+/images               (Status: 301) [Size: 235] [--> http://10.10.84.205/images/]       
+/includes             (Status: 301) [Size: 237] [--> http://10.10.84.205/includes/]     
+/index.php            (Status: 200) [Size: 9278]                                        
+/language             (Status: 301) [Size: 237] [--> http://10.10.84.205/language/]     
+/layouts              (Status: 301) [Size: 236] [--> http://10.10.84.205/layouts/]      
+/libraries            (Status: 301) [Size: 238] [--> http://10.10.84.205/libraries/]    
+/media                (Status: 301) [Size: 234] [--> http://10.10.84.205/media/]        
+/modules              (Status: 301) [Size: 236] [--> http://10.10.84.205/modules/]      
+/plugins              (Status: 301) [Size: 236] [--> http://10.10.84.205/plugins/]      
+/robots.txt           (Status: 200) [Size: 836]                                         
+/templates            (Status: 301) [Size: 238] [--> http://10.10.84.205/templates/]    
+/tmp                  (Status: 301) [Size: 232] [--> http://10.10.84.205/tmp/]          
+===============================================================
+2021/10/26 03:08:25 Finished
+===============================================================
